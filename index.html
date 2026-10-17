@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>آرشیو گمشدهٔ موسیقی | انجمن هنری فرزانگان</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+:root{--bg:#080b1d;--panel:#13152d;--line:#a99bff55;--gold:#f5d77b;--text:#f8f6ff;--muted:#c7c7e2;--green:#7bf0c2;--red:#ff91a9}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 10% 5%,#572a7c88,transparent 35%),radial-gradient(ellipse at 90% 80%,#0e668077,transparent 35%),var(--bg);color:var(--text);font-family:Vazirmatn,Tahoma,sans-serif}
+button,input,select{font:inherit}button{cursor:pointer}
+.wrap{width:min(1050px,94%);margin:auto;padding:22px 0 40px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.brand{font-weight:900;color:#e9caff;font-size:1.1rem}.badge{border:1px solid var(--line);border-radius:30px;padding:7px 12px;color:var(--muted);font-size:.85rem}
+.panel{background:linear-gradient(145deg,#191831f5,#0d1830f5);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 22px 65px #0006}
+.screen{display:none;padding:clamp(18px,5vw,42px)}.screen.active{display:block}
+.hero{text-align:center}.symbol{font-size:52px;margin-bottom:8px}.eyebrow{color:#c8b8ff;font-weight:800;font-size:.85rem}
+h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.4;margin:8px 0}h1 span{color:#f2b7f2}h2{margin:8px 0 14px}p{line-height:2}.muted{color:var(--muted);font-size:.92rem}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.btn{border:0;border-radius:12px;padding:12px 17px;font-weight:800}
+.primary{background:linear-gradient(100deg,#f2c8fa,#b9c8ff,#8de8e7);color:#17142c}
+.secondary{background:#ffffff0b;border:1px solid var(--line);color:var(--text)}
+.danger{background:#ff91a922;border:1px solid #ff91a966;color:#ffd0da}
+.tiles,.stats,.rooms{display:grid;gap:12px}.tiles{grid-template-columns:repeat(3,1fr);margin-top:25px}
+.tile,.stat,.room{background:#ffffff08;border:1px solid #b8a8ff30;border-radius:16px;padding:16px}
+.tile strong{display:block;color:#f2b7f2;margin:8px 0}.tile small{color:var(--muted);line-height:1.8}
+form{margin-top:20px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.field{display:flex;flex-direction:column;gap:7px}.field label{color:var(--muted);font-size:.9rem}
+.field input,.field select,.field textarea{background:#080f25;border:1px solid #a99bff55;border-radius:10px;padding:12px;color:var(--text);width:100%}
+.rooms{grid-template-columns:repeat(2,1fr);margin-top:18px}.room{position:relative;overflow:hidden}.room .icon{font-size:36px}.room h3{margin:8px 0}.room p{font-size:.9rem;color:var(--muted);min-height:52px}.room.locked{opacity:.58}.room button{width:100%}
+.stats{grid-template-columns:repeat(3,1fr);margin:18px 0}.stat small{color:var(--muted)}.stat strong{display:block;color:#f2b7f2;font-size:1.4rem;margin-top:5px}
+.progress{height:7px;background:#ffffff17;border-radius:10px;overflow:hidden;margin:10px 0}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#bb9cff,#f2b7f2,#8de8e7)}
+.quiz{margin-top:18px;padding:clamp(16px,4vw,28px);background:#070e22;border:1px solid var(--line);border-radius:18px}
+.options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}.option{text-align:right;padding:14px;border-radius:12px;border:1px solid #b8a8ff44;background:#ffffff08;color:var(--text);line-height:1.8}
+.option:hover:not(:disabled){border-color:var(--gold);background:#f5d77b12}.option:disabled{cursor:default}.option.good{border-color:var(--green);background:#7bf0c21a}.option.bad{border-color:var(--red);background:#ff91a91a}
+.feedback{min-height:28px;line-height:1.9;margin-top:14px}.goodText{color:var(--green)}.badText{color:#ffadbd}
+.hide{display:none!important}.tablewrap{overflow:auto;margin-top:12px}table{border-collapse:collapse;width:100%;min-width:570px}th,td{text-align:right;padding:10px;border-bottom:1px solid #ffffff20;font-size:.88rem}th{color:var(--gold)}.empty{padding:20px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);text-align:center}
+.notice{border-right:3px solid var(--gold);padding:8px 12px;color:var(--muted);font-size:.88rem;line-height:1.9}
+footer{text-align:center;color:#9c9dbd;font-size:.8rem;margin-top:16px}
+@media(max-width:650px){.tiles,.rooms,.fields,.options,.stats{grid-template-columns:1fr}.screen{padding:20px 16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div class="brand">♫ آرشیو گمشدهٔ موسیقی</div><div class="badge">انجمن هنری فرزانگان · نسخهٔ آزمایشی</div></header>
+<main class="panel">
+<section id="home" class="screen active hero">
+<div class="symbol">🎼</div><div class="eyebrow">پروندهٔ محرمانهٔ شمارهٔ ۰۱</div>
+<h1>آرشیو <span>گمشدهٔ موسیقی</span></h1>
+<p>آرشیو موسیقی مدرسه قفل شده است! شش اتاق، شش رمز و یک مأموریت: سرنخ‌ها را پیدا کن، معماها را حل کن و قطعهٔ گمشده را نجات بده.</p>
+<div class="tiles">
+<div class="tile">🔐<strong>شش اتاق معمایی</strong><small>هر اتاق یک قفل دارد که با حل معما باز می‌شود.</small></div>
+<div class="tile">💡<strong>سرنخ‌های محدود</strong><small>راهنما کمکت می‌کند، اما از امتیازت کم می‌شود.</small></div>
+<div class="tile">🏆<strong>۳۰ معمای چالشی</strong><small>بدون محدودیت زمانی؛ با دقت فکر کن و امتیاز جمع کن.</small></div>
+</div>
+<div class="actions"><button class="btn primary" id="startBtn">ورود به مأموریت ←</button><button class="btn secondary" id="adminBtn">پنل مدیریت</button></div>
+<p class="muted">نسخهٔ آزمایشی: اطلاعات در همین مرورگر ذخیره می‌شود و هنوز بین دستگاه‌ها همگام نیست.</p>
+</section>
+
+<section id="register" class="screen">
+<div class="eyebrow">مرحلهٔ صفر · ثبت مأمور</div><h2>مشخصاتت را وارد کن</h2>
+<form id="registerForm"><div class="fields">
+<div class="field"><label for="first">نام</label><input id="first" required maxlength="40" placeholder="نام"></div>
+<div class="field"><label for="last">نام خانوادگی</label><input id="last" required maxlength="50" placeholder="نام خانوادگی"></div>
+<div class="field"><label for="grade">پایه و کلاس</label><select id="grade" required><option value="">انتخاب کن</option><option>هفتم</option><option>هشتم</option><option>نهم</option><option>دهم</option><option>یازدهم</option><option>دوازدهم</option><option>سایر</option></select></div>
+<div class="field"><label for="classroom">کلاس (اختیاری)</label><input id="classroom" maxlength="20" placeholder="مثلاً ۱"></div>
+</div><div class="actions"><button class="btn primary" type="submit">ثبت و شروع بازی</button><button class="btn secondary" type="button" data-screen="home">بازگشت</button></div></form>
+<p class="notice">برای حفظ حریم خصوصی، شماره تلفن یا اطلاعات حساس وارد نکن.</p>
+</section>
+
+<section id="lobby" class="screen">
+<div class="eyebrow">مرکز فرماندهی</div><h2 id="welcomeName">سلام، مأمور موسیقی!</h2><p class="muted">اتاق‌ها به‌ترتیب باز می‌شوند. برای رسیدن به اتاق بعدی باید رمز اتاق فعلی را کشف کنی.</p>
+<div class="stats"><div class="stat"><small>امتیاز فعلی</small><strong id="score">۰</strong></div><div class="stat"><small>اتاق‌های بازشده</small><strong id="opened">۰ از ۶</strong></div><div class="stat"><small>تعداد معماها</small><strong>۳۰ معما</strong></div></div>
+<div class="progress"><span id="lobbyProgress"></span></div><div id="rooms" class="rooms"></div>
+<div class="actions"><button class="btn secondary" id="changeProfile">تعویض دانش‌آموز</button><button class="btn secondary" data-screen="home">صفحهٔ اصلی</button></div>
+</section>
+
+<section id="game" class="screen">
+<div class="eyebrow" id="roomLabel">اتاق ۱ از ۶</div><h2 id="roomTitle"></h2><p id="story"></p>
+<div class="stats"><div class="stat"><small>امتیاز</small><strong id="gameScore">۰</strong></div><div class="stat"><small>پاسخ درست</small><strong id="correctCount">۰ از ۳۰</strong></div><div class="stat"><small>معما</small><strong id="puzzleCount">۱ از ۵</strong></div></div>
+<div class="progress"><span id="gameProgress"></span></div>
+<div class="quiz"><div class="eyebrow" id="category"></div><h3 id="question"></h3><p class="muted" id="questionContext"></p><div class="options" id="options"></div><div class="feedback" id="feedback" aria-live="polite"></div>
+<div class="actions"><button class="btn secondary" id="hintBtn">💡 دریافت سرنخ (۵ امتیاز)</button><button class="btn primary hide" id="nextBtn">ادامه ←</button></div><p class="muted hide" id="hintText"></p></div>
+<div class="actions"><button class="btn secondary" id="leaveGame">بازگشت به اتاق‌ها</button></div>
+</section>
+
+<section id="finish" class="screen hero">
+<div class="symbol">🏆</div><div class="eyebrow">پرونده بسته شد</div><h2 id="finishTitle">آرشیو نجات پیدا کرد!</h2><p id="finishText"></p>
+<div class="stats"><div class="stat"><small>امتیاز نهایی</small><strong id="finalScore">۰ از ۳۰۰</strong></div><div class="stat"><small>پاسخ درست</small><strong id="finalCorrect">۰ از ۳۰</strong></div><div class="stat"><small>سرنخ استفاده‌شده</small><strong id="finalHints">۰</strong></div></div>
+<div class="actions"><button class="btn primary" id="finishHome">بازگشت به صفحهٔ اصلی</button><button class="btn secondary" id="playAgain">بازی دوباره</button></div>
+</section>
+
+<section id="adminLogin" class="screen">
+<div class="eyebrow">ورود برگزارکننده</div><h2>پنل مدیریت</h2><p class="muted">رمز آزمایشی پیش‌فرض: <b>music007</b></p>
+<form id="adminForm"><div class="field"><label for="adminPass">رمز مدیریت</label><input id="adminPass" type="password" required autocomplete="current-password"></div><p id="adminError" class="badText"></p><div class="actions"><button class="btn primary" type="submit">ورود</button><button class="btn secondary" type="button" data-screen="home">بازگشت</button></div></form>
+<p class="notice">این رمز فقط برای آزمایش محلی است و امنیت واقعی ندارد. قبل از انتشار عمومی باید احراز هویت امن و ذخیره‌سازی سروری پیاده‌سازی شود.</p>
+</section>
+
+<section id="admin" class="screen">
+<div class="row"><div><div class="eyebrow">گزارش برگزارکننده</div><h2>پنل مدیریت</h2></div><button class="btn secondary" id="adminLogout">خروج</button></div>
+<div class="stats"><div class="stat"><small>دانش‌آموزان ثبت‌شده</small><strong id="adminStudents">۰</strong></div><div class="stat"><small>نتیجه‌ها</small><strong id="adminResults">۰</strong></div><div class="stat"><small>میانگین امتیاز</small><strong id="adminAverage">۰</strong></div></div>
+<h3>دانش‌آموزان</h3><div id="studentsTable"></div><h3 style="margin-top:24px">نتایج بازی</h3><div id="resultsTable"></div>
+<div class="actions"><button class="btn primary" id="exportBtn">خروجی CSV</button><button class="btn danger" id="clearBtn">پاک‌کردن همهٔ اطلاعات</button></div>
+<p class="notice">نتایج فقط روی همین مرورگر هستند. پاک‌کردن اطلاعات قابل بازگشت نیست.</p>
+</section>
+</main><footer>ساخته‌شده برای انجمن هنری فرزانگان · آرشیو گمشدهٔ موسیقی 🎶</footer>
+</div>
+<script>
+'use strict';
+const STORAGE_KEY='farzanegan_music_escape_v1';
+const ROOMS=[
+{id:"rhythm",title:"اتاق اول: تالار ضرب‌های گمشده",icon:"🥁",story:"در تالار تاریک، ضرب‌های نامنظم از دیوارها شنیده می‌شوند. قفل فقط وقتی باز می‌شود که رابطهٔ کشش‌ها، ضرب‌ها و میزان‌ها را درست تحلیل کنی.",qs:[{cat:"تحلیل میزان",q:"در میزان‌نمای ۶/۸، عدد بالایی و پایینی به‌ترتیب چه چیزی را نشان می‌دهند؟",o:["شش واحدِ نتِ مشخص‌شده در هر میزان؛ واحدِ کششِ نت چنگ", "شش ضربِ سیاه در هر میزان؛ سرعت قطعه", "هشت میزان در هر بخش؛ شش ساز", "شش نت در هر گام؛ هشت ضرب"],a:0,h:"به عدد پایین نگاه کن: در میزان‌نما، مخرج نوع نتِ واحد را مشخص می‌کند.",e:"در ۶/۸، هر میزان شش واحدِ چنگ دارد؛ حس ضربی آن معمولاً دو ضرب اصلیِ سه‌تایی است."},{cat:"کشش ترکیبی",q:"در شمارش رایج، یک نت سفیدِ نقطه‌دار چند ضربِ سیاه کشش دارد؟",o:["دو ضرب", "سه ضرب", "چهار ضرب", "یک‌ونیم ضرب"],a:1,h:"نقطه نصفِ ارزش زمانیِ نت را به آن اضافه می‌کند.",e:"نت سفید دو ضرب است؛ نقطه یک ضرب دیگر اضافه می‌کند، پس سه ضرب."},{cat:"مقایسهٔ کشش",q:"کدام ترکیب از نظر مجموع کشش با یک نت گرد برابر است؟",o:["دو نت سفید", "یک سفید و دو سیاه", "یک سفید نقطه‌دار و یک سیاه", "یک سفید، یک سیاه و یک چنگ"],a:0,h:"نت گرد چهار ضرب است و هر نت سفید دو ضرب.",e:"دو نت سفید، مجموعاً چهار ضرب می‌شوند؛ همان کشش نت گرد."},{cat:"سنکوپ",q:"سنکوپ در موسیقی معمولاً با چه اتفاقی ارتباط دارد؟",o:["تأکید روی ضرب یا بخش ضعیف‌تر به‌جای ضرب قویِ مورد انتظار", "افزایش تدریجی سرعت قطعه", "اجرای همهٔ نت‌ها با شدت یکسان", "توقف کامل ریتم در پایان هر میزان"],a:0,h:"تأکید ریتمیک از جای معمولش جابه‌جا می‌شود.",e:"سنکوپ با تأکید روی ضرب‌های ضعیف یا بخش‌های غیرمنتظره، حس ریتم را جابه‌جا می‌کند."},{cat:"خواندن ریتم",q:"در میزان ۳/۴، اگر دو نت سیاه و دو نت چنگ داشته باشیم، آیا میزان کامل است؟",o:["بله؛ مجموعاً سه ضرب است", "نه؛ چهار ضرب می‌شود", "نه؛ فقط دو ضرب می‌شود", "بله؛ چون چهار نت نوشته شده است"],a:0,h:"هر سیاه یک ضرب و هر چنگ نیم‌ضرب است.",e:"دو سیاه دو ضرب و دو چنگ یک ضرب می‌شوند؛ مجموع سه ضرب است."}]},
+{id:"notes",title:"اتاق دوم: کتابخانهٔ نت‌نویسی",icon:"📜",story:"روی نسخه‌های قدیمی، نشانه‌هایی رمزگذاری شده‌اند. باید فاصلهٔ نت‌ها، کلیدها و علامت‌های تغییر را از هم تشخیص بدهی.",qs:[{cat:"پنج‌خط حامل",q:"در کلید سل، نتِ روی خط دوم از پایین چه نام دارد؟",o:["می", "سل", "سی", "ر"],a:1,h:"کلید سل جای نت سل را روی خط دوم از بالا، یعنی خط دوم از پایین، مشخص می‌کند.",e:"در کلید سل، خط دوم از پایین نت سل است."},{cat:"علامت عرضی",q:"اگر کنار نتی علامت بمل بیاید، چه تغییری ایجاد می‌کند؟",o:["نت را یک نیم‌پرده پایین می‌آورد", "نت را یک نیم‌پرده بالا می‌برد", "کشش نت را نصف می‌کند", "نت را به سکوت تبدیل می‌کند"],a:0,h:"بمل در برابر دیز قرار دارد.",e:"بمل معمولاً ارتفاع نت را یک نیم‌پرده پایین می‌آورد."},{cat:"دیز و بکار",q:"علامت بکار در نت‌نویسی چه وظیفه‌ای دارد؟",o:["اثر دیز یا بمل قبلی را برای آن نت خنثی می‌کند", "نت را دو نیم‌پرده بالا می‌برد", "نت را دو برابر طولانی می‌کند", "سرعت قطعه را کم می‌کند"],a:0,h:"این علامت نت را به حالت طبیعی برمی‌گرداند.",e:"بکار اثر تغییر ارتفاع ناشی از دیز یا بمل را خنثی می‌کند."},{cat:"خط میزان",q:"خط میزان در نت‌نویسی چه کاربردی دارد؟",o:["جدا کردن میزان‌ها از یکدیگر", "نشان دادن شدت صدای خیلی زیاد", "مشخص کردن نام ساز", "تعیین کردن زیر و بمی یک نت به‌تنهایی"],a:0,h:"این خط ساختار زمانی قطعه را بخش‌بندی می‌کند.",e:"خط میزان، میزان‌های پیاپی را از هم جدا می‌کند."},{cat:"نقطه و اتصال",q:"تفاوت اصلی نقطهٔ بعد از نت با خط اتحاد (Tie) چیست؟",o:["نقطه نصف کشش نت را اضافه می‌کند؛ خط اتحاد کشش نت‌های هم‌ارتفاع را جمع می‌کند", "هر دو فقط بلندی صدا را تغییر می‌دهند", "خط اتحاد نت را کوتاه می‌کند؛ نقطه آن را به سکوت تبدیل می‌کند", "نقطه فقط در پایان قطعه می‌آید؛ خط اتحاد فقط برای سازهای بادی است"],a:0,h:"یکی ارزش زمانی همان نت را افزایش می‌دهد؛ دیگری دو نت هم‌ارتفاع را پیوند می‌دهد.",e:"نقطه نصف ارزش نت را اضافه می‌کند؛ خط اتحاد کشش نت‌های هم‌ارتفاع را به هم متصل می‌کند."}]},
+{id:"instruments",title:"اتاق سوم: تالار سازهای خاموش",icon:"🎻",story:"هر ساز در جعبه‌ای قفل‌شده پنهان است. صدای تولیدشده و شیوهٔ نواختن، سرنخ شناسایی خانوادهٔ سازهاست.",qs:[{cat:"خانوادهٔ سازها",q:"کدام دسته‌بندی دربارهٔ تار ایرانی دقیق‌تر است؟",o:["زهی زخمه‌ای", "زهی آرشه‌ای", "بادی چوبی", "کوبه‌ایِ پوستی"],a:0,h:"صدا از ارتعاش سیم‌ها پس از زخمه‌زدن تولید می‌شود.",e:"تار ساز زهی زخمه‌ای است."},{cat:"سازهای بادی",q:"در ساز بادی، منبع اصلی ارتعاش برای تولید صدا چیست؟",o:["ستون هوا یا جریان هوای به ارتعاش درآمده", "پوست کشیده‌شده روی قاب", "سیم کشیده‌شده روی خرک", "صفحه‌کلید الکترونیکی به‌تنهایی"],a:0,h:"در نی، دمیدن نوازنده ستون هوا را به ارتعاش درمی‌آورد.",e:"در سازهای بادی، ارتعاش ستون هوا نقش اصلی دارد."},{cat:"سازهای کوبه‌ای",q:"کدام ویژگی، سازهای کوبه‌ای را از سازهای زهی متمایز می‌کند؟",o:["صدا معمولاً با ضربه، تکان یا مالش تولید می‌شود، نه با ارتعاش سیم به‌عنوان منبع اصلی", "همهٔ آن‌ها فقط نت‌های زیر تولید می‌کنند", "همهٔ آن‌ها با دمیدن نواخته می‌شوند", "هیچ‌کدام نمی‌توانند ریتم ایجاد کنند"],a:0,h:"به شیوهٔ به‌صدا درآمدن ساز توجه کن.",e:"سازهای کوبه‌ای با ضربه، تکان یا روش‌های مشابه به صدا درمی‌آیند."},{cat:"ارکستر",q:"ویولن و ویولا هر دو در کدام خانواده قرار می‌گیرند؟",o:["زهی آرشه‌ای", "زهی زخمه‌ای", "بادی برنجی", "کوبه‌ای"],a:0,h:"در شیوهٔ معمول نواختنشان از آرشه روی سیم استفاده می‌شود.",e:"ویولن و ویولا سازهای زهی آرشه‌ای هستند."},{cat:"ساز و نقش",q:"در یک گروه موسیقی، چرا ممکن است از سازهای مختلف برای اجرای یک ملودی استفاده شود؟",o:["برای ایجاد رنگ صوتی و بیان متفاوت، حتی با نت‌های یکسان", "چون هر ساز الزاماً فقط یک نت می‌تواند اجرا کند", "برای حذف کامل ریتم", "چون سازها هیچ تفاوت صوتی ندارند"],a:0,h:"به کیفیت و رنگ صدای هر ساز فکر کن.",e:"سازهای مختلف می‌توانند یک ملودی را با رنگ صوتی و بیان متفاوت اجرا کنند."}]},
+{id:"sound",title:"اتاق چهارم: آزمایشگاه آکوستیک",icon:"🔊",story:"موج‌های صوتی در آزمایشگاه ثبت شده‌اند. این بار باید تفاوت زیر و بمی، شدت، رنگ صوتی و اصطلاح‌های اجرایی را تحلیل کنی.",qs:[{cat:"زیر و بمی",q:"از نظر فیزیکی، زیر و بمی صدا بیش از همه با کدام ویژگی موج ارتباط دارد؟",o:["بسامد یا فرکانس", "دامنهٔ موج", "مدت سکوت", "تعداد نوازندگان"],a:0,h:"بسامد بیشتر معمولاً به صدای زیرتر مربوط است.",e:"زیر و بمی صدا عمدتاً با فرکانس موج صوتی ارتباط دارد."},{cat:"شدت صدا",q:"در یک توضیح ساده، افزایش دامنهٔ موج صوتی معمولاً چه اثری دارد؟",o:["صدا بلندتر شنیده می‌شود", "صدا الزاماً زیرتر می‌شود", "سرعت قطعه دو برابر می‌شود", "رنگ صوتی کاملاً حذف می‌شود"],a:0,h:"دامنه را با بلندی صدا مرتبط بدان، نه با زیر و بمی.",e:"دامنهٔ بیشتر معمولاً با شدت یا بلندی بیشتر صدا همراه است."},{cat:"رنگ صوتی",q:"چرا فلوت و ویولن می‌توانند یک نت با فرکانس یکسان را متفاوت به گوش برسانند؟",o:["به‌دلیل تفاوت در رنگ صوتی و ترکیب هارمونیک‌ها", "چون فرکانس آن‌ها در هر شرایطی متفاوت است", "چون یکی از آن‌ها الزاماً ریتم ندارد", "به‌دلیل تعداد میزان‌های قطعه"],a:0,h:"رنگ صوتی به ما کمک می‌کند جنس صداها را تشخیص دهیم.",e:"رنگ صوتی به شکل موج و ترکیب هارمونیک‌ها وابسته است و سازها را متمایز می‌کند."},{cat:"اصطلاح شدت",q:"کدام جفت، افزایش و کاهش تدریجی شدت صدا را درست نشان می‌دهد؟",o:["کرشندو و دیمینوندو", "آداجیو و آلگرو", "استاکاتو و لگاتو", "پیانو و تمپو"],a:0,h:"یکی به‌تدریج بلندتر و دیگری به‌تدریج آرام‌تر می‌شود.",e:"کرشندو افزایش تدریجی شدت و دیمینوندو کاهش تدریجی شدت است."},{cat:"تمپو",q:"اگر قطعه‌ای از آداجیو به پرستو تغییر کند، چه تغییری انتظار می‌رود؟",o:["سرعت اجرا از آهسته به بسیار تند می‌رود", "شدت صدا از آرام به بلند می‌رود", "همهٔ نت‌ها کوتاه و جدا می‌شوند", "گام قطعه حتماً ماژور می‌شود"],a:0,h:"این دو اصطلاح به سرعت اجرا مربوط‌اند.",e:"آداجیو آهسته و پرستو بسیار تند است؛ این‌ها اصطلاح‌های تمپو هستند."}]},
+{id:"melody",title:"اتاق پنجم: راهروی ملودی و هارمونی",icon:"🎹",story:"چند خط موسیقایی هم‌زمان شنیده می‌شوند. باید بفهمی کدام بخش ملودی است، کدام همراهی و چگونه آکوردها و فرم، قطعه را می‌سازند.",qs:[{cat:"ملودی",q:"کدام تعریف از ملودی دقیق‌تر است؟",o:["توالی سازمان‌یافتهٔ نت‌ها که یک خط موسیقایی قابل‌تشخیص می‌سازد", "مجموعه‌ای از سکوت‌ها بدون هیچ رابطه‌ای", "سرعت اجرای قطعه در هر دقیقه", "فقط نت‌های بمِ همراهی"],a:0,h:"ملودی اغلب همان خطی است که شنونده می‌تواند زمزمه کند.",e:"ملودی توالی سازمان‌یافتهٔ نت‌هاست که خط موسیقایی مشخصی می‌سازد."},{cat:"هارمونی",q:"وقتی چند نت با هم و به‌صورت هم‌زمان شنیده می‌شوند و رابطهٔ آکوردی می‌سازند، کدام مفهوم مهم است؟",o:["هارمونی", "تمپو", "تیمبر به‌تنهایی", "میزان‌نما"],a:0,h:"به رابطهٔ هم‌زمانی نت‌ها فکر کن، نه ترتیب زمانی آن‌ها.",e:"هارمونی به رابطهٔ نت‌های هم‌زمان و آکوردها مربوط است."},{cat:"آکورد سه‌صدایی",q:"آکورد سه‌صداییِ ساده معمولاً از چند نت با فاصله‌های سوم روی هم ساخته می‌شود؟",o:["سه نت", "دو نت", "چهار نت الزاماً", "شش نت"],a:0,h:"نام «سه‌صدایی» به تعداد نت‌های اصلی اشاره دارد.",e:"آکورد سه‌صدایی معمولاً از سه نت ساخته می‌شود که اغلب با فاصله‌های سوم روی هم قرار می‌گیرند."},{cat:"فرم موسیقی",q:"در فرم سه‌بخشی ABA، بخش پایانی چه نسبتی با بخش آغازین دارد؟",o:["بازگشت بخش A پس از بخش میانی B", "تکرار سه‌بارهٔ بخش B بدون تغییر", "اجرای سه ساز به‌صورت هم‌زمان", "افزایش اجباری سرعت در پایان"],a:0,h:"حروف نشان‌دهندهٔ بخش‌های موسیقی‌اند؛ A در پایان برمی‌گردد.",e:"در فرم ABA، بخش A پس از بخش میانی B بازمی‌گردد."},{cat:"همراهی",q:"کدام گزینه نمونه‌ای از نقش همراهی در یک اجرای آوازی است؟",o:["پیانو آکوردها و الگوی ریتمیک می‌نوازد تا از آواز پشتیبانی کند", "خواننده ملودی را بدون هیچ صدای دیگری اجرا می‌کند", "سازها عمداً از ضرب مشترک خارج می‌شوند", "همهٔ نوازندگان فقط سکوت می‌کنند"],a:0,h:"همراهی به خط اصلی کمک می‌کند و لزوماً ملودی اصلی نیست.",e:"نواختن آکوردها و الگوهای ریتمیک زیر آواز نمونه‌ای از همراهی است."}]},
+{id:"final",title:"اتاق ششم: گاوصندوق قطعهٔ گمشده",icon:"✨",story:"آخرین گاوصندوق با دانشی ترکیبی باز می‌شود. برای نجات آرشیو، باید چند مفهوم را با هم مقایسه و تحلیل کنی.",qs:[{cat:"تحلیل ترکیبی",q:"یک میزان ۴/۴ شامل یک نت سفید نقطه‌دار و یک نت چنگ است. مجموع کشش چند ضرب سیاه می‌شود؟",o:["سه‌ونیم ضرب", "سه ضرب", "چهار ضرب", "دوونیم ضرب"],a:0,h:"سفید نقطه‌دار سه ضرب و چنگ نیم‌ضرب است.",e:"سه ضرب به‌علاوهٔ نیم‌ضرب برابر سه‌ونیم ضرب است."},{cat:"گام ماژور",q:"در الگوی فاصله‌ای گام ماژور، فاصلهٔ بین درجه‌های سوم و چهارم چند نیم‌پرده است؟",o:["یک نیم‌پرده", "دو نیم‌پرده", "سه نیم‌پرده", "چهار نیم‌پرده"],a:0,h:"الگوی ماژور از دو پرده، یک نیم‌پرده، سه پرده و یک نیم‌پرده ساخته می‌شود.",e:"در گام ماژور، فاصلهٔ درجهٔ سوم تا چهارم یک نیم‌پرده است."},{cat:"هماهنگی گروهی",q:"اگر نوازنده‌ای زودتر از بقیه وارد شود، کدام مهارت گروهی بیش از همه به اصلاح اجرا کمک می‌کند؟",o:["گوش دادن متقابل و حفظ ضرب مشترک", "بلندتر نواختن از دیگران", "تغییر خودسرانهٔ تمپو", "نادیده گرفتن رهبر یا نشانه‌های اجرایی"],a:0,h:"هم‌نوازی به توجه به دیگران و زمان‌بندی مشترک وابسته است.",e:"گوش دادن متقابل و حفظ ضرب مشترک برای هماهنگی گروه ضروری است."},{cat:"موسیقی ایرانی",q:"در موسیقی دستگاهی ایران، «شور» را بهتر است چگونه بشناسیم؟",o:["یکی از دستگاه‌های اصلی موسیقی ایرانی", "نام یک ساز کوبه‌ای", "علامت افزایش شدت صدا", "نوعی میزان‌نمای ثابت"],a:0,h:"شور در کنار ماهور، همایون و دیگر دستگاه‌ها قرار می‌گیرد.",e:"شور یکی از دستگاه‌های اصلی موسیقی ایرانی است."},{cat:"تشخیص مفهوم",q:"یک قطعه هم‌زمان آرام، آهسته و با صدای نرم اجرا می‌شود. کدام گزاره درست است؟",o:["آهسته بودن به تمپو مربوط است و نرم بودن به شدت؛ این دو یکی نیستند", "آهسته بودن و نرم بودن دقیقاً یک مفهوم‌اند", "نرم بودن یعنی فرکانس پایین‌تر", "تمپو فقط جنس ساز را مشخص می‌کند"],a:0,h:"سرعت اجرا و بلندی صدا دو ویژگی جداگانه‌اند.",e:"تمپو سرعت اجرا را مشخص می‌کند؛ شدت صدا به آرام یا بلند بودن مربوط است."}]}
+];
+const $=id=>document.getElementById(id);
+const fa=n=>String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[Number(d)]);
+const TOTAL_QUESTIONS=ROOMS.reduce((sum,r)=>sum+r.qs.length,0);
+let db=loadDB(),student=null,roomIndex=0,qIndex=0,score=0,correct=0,hints=0,answered=false,gameFinished=false,activeOptions=[],activeAnswer=0;
+function loadDB(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||{students:[],results:[]}}catch(e){return{students:[],results:[]}}}
+function saveDB(){localStorage.setItem(STORAGE_KEY,JSON.stringify(db))}
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function currentRoom(){return ROOMS[roomIndex]}
+function currentQ(){return currentRoom().qs[qIndex]}
+function studentKey(s){return [s.first,s.last,s.grade,s.classroom].join('|').toLocaleLowerCase('fa')}
+function refreshStudent(){if(!student)return;$('welcomeName').textContent='خوش آمدی، '+student.first+' '+student.last+'!';$('score').textContent=fa(score);$('opened').textContent=fa(Math.min(roomIndex+(gameFinished?1:0),6))+' از ۶';$('lobbyProgress').style.width=((gameFinished?6:roomIndex)/6*100)+'%';renderRooms()}
+function renderRooms(){const el=$('rooms');el.innerHTML='';ROOMS.forEach((r,i)=>{const unlocked=i===0||i<=roomIndex;const done=i<roomIndex||gameFinished;const card=document.createElement('article');card.className='room'+(!unlocked?' locked':'');card.innerHTML='<div class="icon">'+r.icon+'</div><div class="eyebrow">اتاق '+fa(i+1)+' از ۶ · '+fa(r.qs.length)+' معما</div><h3></h3><p></p><button class="btn '+(unlocked?'primary':'secondary')+'"></button>';card.querySelector('h3').textContent=r.title;card.querySelector('p').textContent=done?'این اتاق را پشت سر گذاشتی.':r.story;const b=card.querySelector('button');b.textContent=done?'✓ تکمیل شد':unlocked?'ورود به اتاق ←':'🔒 هنوز قفل است';b.disabled=!unlocked||done;b.onclick=()=>enterRoom(i);el.appendChild(card)})}
+function enterRoom(i){if(i>roomIndex||gameFinished)return;roomIndex=i;qIndex=0;answered=false;show('game');renderQuestion()}
+function shuffle(items){const arr=items.slice();for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
+function renderQuestion(){
+ const r=currentRoom(),q=currentQ();
+ $('roomLabel').textContent='اتاق '+fa(roomIndex+1)+' از ۶';
+ $('roomTitle').textContent=r.title;$('story').textContent=r.story;$('category').textContent=q.cat;
+ $('question').textContent='معما '+fa(qIndex+1)+' از '+fa(r.qs.length);
+ $('questionContext').textContent=q.q;
+ $('puzzleCount').textContent=fa(qIndex+1)+' از '+fa(r.qs.length);
+ $('gameScore').textContent=fa(score);$('correctCount').textContent=fa(correct)+' از '+fa(TOTAL_QUESTIONS);
+ $('gameProgress').style.width=((ROOMS.slice(0,roomIndex).reduce((n,x)=>n+x.qs.length,0)+qIndex)/TOTAL_QUESTIONS*100)+'%';
+ $('feedback').textContent='';$('feedback').className='feedback';$('nextBtn').classList.add('hide');
+ $('hintText').classList.add('hide');$('hintText').textContent='';$('hintBtn').disabled=false;
+ $('options').innerHTML='';
+ const labels=['الف','ب','پ','ج'];
+ activeOptions=shuffle(q.o.map((text,index)=>({text,originalIndex:index})));
+ activeAnswer=activeOptions.findIndex(x=>x.originalIndex===q.a);
+ activeOptions.forEach((option,i)=>{const b=document.createElement('button');b.className='option';b.textContent=labels[i]+' ـ '+option.text;b.onclick=()=>answer(i,b);$('options').appendChild(b)});
+}
+function answer(i,button){
+ if(answered)return;answered=true;
+ const q=currentQ(),buttons=[...$('options').children];buttons.forEach(b=>b.disabled=true);
+ if(i===activeAnswer){correct++;score+=10;button.classList.add('good');$('feedback').textContent='آفرین! پاسخ درست است. '+q.e;$('feedback').classList.add('goodText')}
+ else{button.classList.add('bad');buttons[activeAnswer].classList.add('good');$('feedback').textContent='این بار نه؛ پاسخ درست: '+activeOptions[activeAnswer].text+'. '+q.e;$('feedback').classList.add('badText')}
+ $('gameScore').textContent=fa(score);$('correctCount').textContent=fa(correct)+' از '+fa(TOTAL_QUESTIONS);
+ const lastQuestion=qIndex===currentRoom().qs.length-1;
+ $('nextBtn').textContent=lastQuestion?(roomIndex===ROOMS.length-1?'نجات آرشیو و دیدن نتیجه ←':'باز کردن قفل اتاق بعدی ←'):'معمای بعدی ←';
+ $('nextBtn').classList.remove('hide');
+}
+function useHint(){if(answered||$('hintBtn').disabled)return;if(score<5){$('feedback').textContent='برای دریافت سرنخ، دست‌کم ۵ امتیاز لازم است.';return}score-=5;hints++;$('hintText').textContent='💡 سرنخ: '+currentQ().h;$('hintText').classList.remove('hide');$('hintBtn').disabled=true;$('gameScore').textContent=fa(score)}
+function next(){
+ if(!answered)return;
+ if(qIndex<currentRoom().qs.length-1){qIndex++;answered=false;renderQuestion();return}
+ if(roomIndex<ROOMS.length-1){roomIndex++;qIndex=0;refreshStudent();show('lobby');return}
+ finishGame()
+}
+async function finishGame() {
+  if (gameFinished) return;
+  gameFinished = true;
+
+  const result = {
+    first: student.first,
+    last: student.last,
+    grade: student.grade,
+    classroom: student.classroom,
+    score,
+    correct,
+    total: TOTAL_QUESTIONS,
+    hints,
+    date: new Date().toISOString()
+  };
+
+  db.students = db.students.filter(
+    s => studentKey(s) !== studentKey(student)
+  );
+
+  db.students.push({
+    ...student,
+    registered: student.registered || new Date().toISOString()
+  });
+
+  db.results.push(result);
+  saveDB();
+
+  $('finishTitle').textContent = 'آرشیو موسیقی نجات پیدا کرد!';
+  $('finishText').textContent = 'نتیجهٔ بازی در حال ارسال به سامانه است...';
+  $('finalScore').textContent = fa(score) + ' از ' + fa(TOTAL_QUESTIONS * 10);
+  $('finalCorrect').textContent = fa(correct) + ' از ' + fa(TOTAL_QUESTIONS);
+  $('finalHints').textContent = fa(hints);
+  show('finish');
+
+  try {
+    const response = await fetch(
+      'https://pbhnonrvfaaffgnegdyw.supabase.co/functions/v1/quick-processor',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': 'sb_publishable_1RWoJnlPPLARtcKGqDa0cQ_7caWC0lT'
+        },
+        body: JSON.stringify({
+          first: student.first,
+          last: student.last,
+          grade: student.grade,
+          score: score
+        })
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error('Save failed: ' + response.status);
+    }
+
+    $('finishText').textContent =
+      'نتیجهٔ مأموریتت با موفقیت در سامانه ثبت شد!';
+  } catch (error) {
+    console.error(error);
+    $('finishText').textContent =
+      'نتیجه فعلاً در همین مرورگر ذخیره شده؛ ثبت آنلاین ناموفق بود.';
+  }
+}
+function resetGame(){score=0;correct=0;hints=0;roomIndex=0;qIndex=0;answered=false;gameFinished=false;refreshStudent();show('lobby')}
+$('startBtn').onclick=()=>{show('register')};
+$('registerForm').onsubmit=e=>{e.preventDefault();student={first:$('first').value.trim(),last:$('last').value.trim(),grade:$('grade').value,classroom:$('classroom').value.trim(),registered:new Date().toISOString()};if(!student.first||!student.last||!student.grade)return;resetGame()};
+document.querySelectorAll('[data-screen]').forEach(b=>b.onclick=()=>show(b.dataset.screen));
+$('changeProfile').onclick=()=>{student=null;$('registerForm').reset();show('register')};
+$('hintBtn').onclick=useHint;$('nextBtn').onclick=next;
+$('leaveGame').onclick=()=>{refreshStudent();show('lobby')};
+$('finishHome').onclick=()=>{show('home')};
+$('playAgain').onclick=()=>{if(student)resetGame();else show('register')};
+$('adminBtn').onclick=()=>{show('adminLogin');$('adminPass').value='';$('adminError').textContent=''};
+$('adminForm').onsubmit=e=>{e.preventDefault();if($('adminPass').value==='music007'){renderAdmin();show('admin')}else $('adminError').textContent='رمز درست نیست.'};
+$('adminLogout').onclick=()=>show('home');
+function makeTable(el,heads,rows){if(!rows.length){el.innerHTML='<div class="empty">هنوز اطلاعاتی ثبت نشده است.</div>';return}const wrap=document.createElement('div');wrap.className='tablewrap';const t=document.createElement('table');const thead=document.createElement('thead'),hr=document.createElement('tr');heads.forEach(h=>{const th=document.createElement('th');th.textContent=h;hr.appendChild(th)});thead.appendChild(hr);t.appendChild(thead);const tb=document.createElement('tbody');rows.forEach(row=>{const tr=document.createElement('tr');row.forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.appendChild(td)});tb.appendChild(tr)});t.appendChild(tb);wrap.appendChild(t);el.innerHTML='';el.appendChild(wrap)}
+function renderAdmin(){db=loadDB();$('adminStudents').textContent=fa(db.students.length);$('adminResults').textContent=fa(db.results.length);$('adminAverage').textContent=fa(db.results.length?Math.round(db.results.reduce((s,r)=>s+r.score,0)/db.results.length):0);makeTable($('studentsTable'),['نام و نام خانوادگی','پایه','کلاس','تاریخ ثبت‌نام'],db.students.map(s=>[s.first+' '+s.last,s.grade,s.classroom||'—',new Date(s.registered).toLocaleDateString('fa-IR')]));makeTable($('resultsTable'),['دانش‌آموز','پایه','امتیاز','پاسخ درست','سرنخ','تاریخ'],db.results.slice().reverse().map(r=>[r.first+' '+r.last,r.grade,fa(r.score)+' از '+fa((r.total||TOTAL_QUESTIONS)*10),fa(r.correct)+' از '+fa(r.total||TOTAL_QUESTIONS),fa(r.hints),new Date(r.date).toLocaleDateString('fa-IR')]))}
+$('exportBtn').onclick=()=>{db=loadDB();const rows=[['نام','نام خانوادگی','پایه','کلاس','امتیاز','پاسخ درست','کل معماها','سرنخ','تاریخ'],...db.results.map(r=>[r.first,r.last,r.grade,r.classroom,r.score,r.correct,r.total||TOTAL_QUESTIONS,r.hints,r.date])];const csv='\uFEFF'+rows.map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));const a=document.createElement('a');a.href=url;a.download='music-archive-results.csv';a.click();URL.revokeObjectURL(url)};
+$('clearBtn').onclick=()=>{if(confirm('تمام اطلاعات ثبت‌شده در این مرورگر پاک شود؟ این کار قابل بازگشت نیست.')){localStorage.removeItem(STORAGE_KEY);db=loadDB();renderAdmin()}};
+</script>
+</body>
+</html>
